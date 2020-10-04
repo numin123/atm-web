@@ -48,14 +48,15 @@ public class BankAccount {
         this.balance = balance;
     }
 
+    public void withdraw(double balance){
+
+        if(balance > 0 && balance <= this.balance)
+            this.balance -= balance;
+    }
+
     public void deposit(double balance){
         if(balance > 0)
             this.balance += balance;
-    }
-
-    public void withdraw(double balance){
-        if(balance > 0 && balance <= this.balance)
-            this.balance -= balance;
     }
 
     @Override
@@ -67,4 +68,6 @@ public class BankAccount {
                 ", balance=" + balance +
                 '}';
     }
+
+
 }
