@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import th.ac.ku.atm.model.BankAccount;
+import th.ac.ku.atm.model.Customer;
 import th.ac.ku.atm.service.BankAccountService;
 import th.ac.ku.atm.service.CustomerService;
 
@@ -30,8 +31,8 @@ public class LoginController {
     }
 
     @PostMapping
-    public String login(@ModelAttribute th.ac.ku.atm.controller.Customer customer, Model model) {
-        th.ac.ku.atm.controller.Customer storedCustomer = customerService.checkPin(customer);
+    public String login(@ModelAttribute Customer customer, Model model) {
+        Customer storedCustomer = customerService.checkPin(customer);
 
         if (storedCustomer != null) {
             model.addAttribute("customertitle",
